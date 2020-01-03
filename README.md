@@ -1,2 +1,3 @@
-# DockerLatexEmacs26Pandoc
-Build a docker image with Latex (texlive, emacs26 and Pandoc 2.9.1)
+# DockerLatexEmacs24Pandoc
+
+Build a docker image with Latex (texlive, emacs24 and Pandoc-1.19.1)
