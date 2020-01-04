@@ -40,6 +40,7 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 ;; (package-initialize)
+(setq package-check-signature nil)
 (require 'package) ;; You might already have this line
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/"))
@@ -51,7 +52,7 @@
 ;; list the packages you want
 (defvar package-list)
 (setq package-list '(async auctex auto-complete autopair company
-			   hungry-delete
+			   hungry-delete fountain-mode
                            markdown-mode solarized-theme
                            window-numbering writegood-mode yasnippet))
 ;; fetch the list of packages available

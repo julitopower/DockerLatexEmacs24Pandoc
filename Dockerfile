@@ -1,15 +1,15 @@
 ################################################################################
 # Based on https://github.com/jagregory/pandoc-docker
 ################################################################################
-FROM haskell:8.0
+FROM haskell:8
 
 ENV USER root
 ENV HOME /root
 MAINTAINER Julio Delgado Mangas <julio.delgadomangas@gmail.com>
 
-# install emacs24
+# install emacs25
 RUN apt-get update -y \
-    && apt-get install curl wget git emacs24 -y \
+    && apt-get install curl wget git emacs25 -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install emacs configuration and required packages
@@ -34,10 +34,10 @@ RUN apt-get update -y \
 
 # will ease up the update process
 # updating this env variable will trigger the automatic build of the Docker image
-ENV PANDOC_VERSION "1.19.2.1"
+ENV PANDOC_VERSION "2.9.1"
 
 # install pandoc
-RUN cabal update && cabal install pandoc-${PANDOC_VERSION}
+RUN cabal update && cabal install pandoc-${PANDOC_VERSION} --minimize-conflict-set
 
 WORKDIR /source
 
