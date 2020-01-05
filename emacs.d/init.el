@@ -52,7 +52,7 @@
 ;; list the packages you want
 (defvar package-list)
 (setq package-list '(async auctex auto-complete autopair company
-			   hungry-delete fountain-mode
+                           hungry-delete fountain-mode
                            markdown-mode solarized-theme
                            window-numbering writegood-mode yasnippet))
 ;; fetch the list of packages available
@@ -130,6 +130,12 @@
 ;; Automatically at closing brace, bracket and quote
 (require 'autopair)
 (autopair-global-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; For some reason fountain requires case sensitive search on
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'fountain-mode)
+(add-hook 'fountain-mode-hook (lambda () (setq case-fold-search t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load hungry Delete, caus we're lazy
